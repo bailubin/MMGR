@@ -13,6 +13,9 @@ torch-sparse==0.6.12
 torch-spline-conv==1.2.1
 ```
 # Usage
+## POI category representation learning
+Users need to first get the POI category embeddings, and we utilize the [HGI](https://github.com/RightBank/HGI) to embed the POIs.
+## train and evaluate MMGR
 ```bash
 # train mmgr model
 python mmgr.py --data_path the_path_to_your_img_and_poi_data --total_epoch 120 --model_path the_path_to_save_model --train_record train_record_name
