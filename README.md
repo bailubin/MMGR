@@ -14,7 +14,7 @@ torch-spline-conv==1.2.1
 ```
 # Usage
 ## POI category representation learning
-Users need to first get the POI category embeddings, and we utilize the [HGI](https://github.com/RightBank/HGI) to embed the POIs.
+Users need to first get the POI category embeddings, and we utilize the [SemanticPOIEmbedding](https://github.com/RightBank/Semantics-preserved-POI-embedding) to embed the POIs.
 ## train and evaluate MMGR
 ```bash
 # train mmgr model
