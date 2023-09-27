@@ -22,7 +22,7 @@ class PoiImageAugDataset(Dataset):
 
     def __getitem__(self, index):
         img_name = os.path.join(self.img_path, self.train_files[index])
-        poi_name = os.path.join(self.poi_path, self.train_files[index][:-4] + 'tensor')
+        poi_name = os.path.join(self.poi_path, self.train_files[index][:-3] + 'tensor')
         edge_name = os.path.join(self.edge_path, self.train_files[index][:-3] + 'tensor')
         img = Image.open(img_name)
 
