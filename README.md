@@ -13,6 +13,13 @@ torch-sparse==0.6.12
 torch-spline-conv==1.2.1
 ```
 # Usage
+## Dataset 
+Due to the copyright restrictions, we sample 200 samples from Shanghai and release them for model training simulation.
+Baiduyun drive:
+address：[https://pan.baidu.com/s/1xza04ceKHNfai77yUY4Zwg](https://pan.baidu.com/s/1xza04ceKHNfai77yUY4Zwg) 
+code：c6zp
+Google drive；
+
 ## POI category representation learning
 Users need to first get the POI category embeddings, and we utilize the [SemanticPOIEmbedding](https://github.com/RightBank/Semantics-preserved-POI-embedding) to embed the POIs.
 ## train and evaluate MMGR
