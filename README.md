@@ -22,7 +22,7 @@ Google drive:
 https://drive.google.com/drive/folders/1gU3yPyz0l59zrJNXCHTNbSwPXuYnVwVi?usp=drive_link  
 
 ## POI category representation learning
-Users need to first get the POI category embeddings, and we utilize the [SemanticPOIEmbedding](https://github.com/RightBank/Semantics-preserved-POI-embedding) to embed the POIs.
+If you use your own POI data, you need to first get the POI category embeddings, and we utilize the [SemanticPOIEmbedding](https://github.com/RightBank/Semantics-preserved-POI-embedding) to embed the POIs.
 ## train and evaluate MMGR
 ```bash
 # train mmgr model
