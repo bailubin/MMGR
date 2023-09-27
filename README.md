@@ -29,7 +29,7 @@ Users need to first get the POI category embeddings, and we utilize the [Semanti
 python mmgr.py --data_path the_path_to_your_img_and_poi_data --total_epoch 120 --model_path the_path_to_save_model --train_record train_record_name
 # test mmgr on downstream task (pop task), revise the pretrained-ckpt path in the python file in the first step
 python res-pop.py
-
+```
 # BibTeX
 ```bash
 @article{bai2023geographic,
@@ -41,3 +41,4 @@ python res-pop.py
   year={2023},
   publisher={Elsevier}
 }
+```
