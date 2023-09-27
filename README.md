@@ -14,7 +14,7 @@ torch-spline-conv==1.2.1
 ```
 # Usage
 ## Dataset 
-Due to the copyright restrictions, we sample 200 samples (including image patches and the corresponding POI embeddings) from Shanghai and release them for model training simulation.  
+Due to the copyright restrictions, we sample 200 samples (including image patches and the corresponding POI embeddings, tensor, read by torch.load) from Shanghai and release them for model training simulation.  
 Baiduyun drive:  
 address：[https://pan.baidu.com/s/1xza04ceKHNfai77yUY4Zwg](https://pan.baidu.com/s/1xza04ceKHNfai77yUY4Zwg) 
 code：c6zp  
