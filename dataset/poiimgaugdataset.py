@@ -7,26 +7,21 @@ import random
 
 
 class PoiImageAugDataset(Dataset):
-    def __init__(self, path, edge_w=False, poi_f='poi'):
+    def __init__(self, path, edge_w=False):
         super(PoiImageAugDataset, self).__init__()
-        print(poi_f)
-        self.img_path = os.path.join(path, 'img')
-        self.poi_path = os.path.join(path, 'wuhanemb', poi_f)
-        self.edge_path = os.path.join(path, 'wuhanemb', 'edge')
+        self.img_path = os.path.join(path, 'sub_shanghai_img')
+        self.poi_path = os.path.join(path, 'sub_shanghai_emb')
+        self.edge_path = os.path.join(path, 'sub_shanghai_edge')
         self.edge_w = edge_w
 
         if self.edge_w:
             self.edge_w_path = os.path.join(path, 'wuhanemb', 'edgeweight')
 
-        filelist = os.path.join(path, 'all-wuhan.txt')
+        self.train_files=os.listdir(self.img_path)
 
-        self.train_files = []
-        with open(filelist, 'r') as lines:
-            for line in lines:
-                self.train_files.append(line.rstrip('\n'))
 
     def __getitem__(self, index):
-        img_name = os.path.join(self.img_path, self.train_files[index][:-3] + 'png')
+        img_name = os.path.join(self.img_path, self.train_files[index])
         poi_name = os.path.join(self.poi_path, self.train_files[index][:-4] + 'tensor')
         edge_name = os.path.join(self.edge_path, self.train_files[index][:-3] + 'tensor')
         img = Image.open(img_name)
