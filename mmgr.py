@@ -10,7 +10,7 @@ from modules import *
 from dataset import PoiImageAugDataset
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_path', type=str, default='/home/blb/blbdata/img-poi-moco')
+parser.add_argument('--data_path', type=str, default='/home/blb/blbdata/img-poi-moco') # where data is stored
 parser.add_argument('--lr', type=float, default=1e-2)
 parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--projection_dim', type=int, default=128)
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # dataset
-    train_dataset = PoiImageAugDataset(path=args.data_path, poi_f='poi12-100')
+    train_dataset = PoiImageAugDataset(path=args.data_path)
     train_loader = torch_geometric.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True,
                                                    num_workers=6)
 
@@ -72,8 +72,6 @@ if __name__ == '__main__':
     img_lmd = 0.5
 
     for epoch in range(1, args.total_epoch + 1):
-        loss_step1 = 0
-        loss_step2 = 0
         img_optimizer = adjust_learning_rate(img_optimizer, epoch, args)
         poi_optimizer = adjust_learning_rate(poi_optimizer, epoch, args)
         for step, data in enumerate(train_loader):
@@ -99,18 +97,14 @@ if __name__ == '__main__':
             img_optimizer.step()
             poi_optimizer.step()
 
-            loss_step1 += loss1.item()
-            loss_step2 += loss2.item()
 
-            if step % 50 == 0:
-                print(
-                    f"epoch [{epoch}/{args.total_epoch}]\t Step [{step}/{len(train_loader)}]\t Loss1: {loss_step1 / 50}\t Loss2: {loss_step2 / 50}")
-                record_file = open(record_path, 'a')
-                record_file.write(
-                    f"Step [{step}/{len(train_loader)}]\t Loss1: {loss_step1 / 50}\t Loss2: {loss_step2 / 50}\n")
-                record_file.close()
-                loss_step1 = 0
-                loss_step2 = 0
+            print(
+                f"epoch [{epoch}/{args.total_epoch}]\t Step [{step}/{len(train_loader)}]\t Loss1: {loss1.item()}\t Loss2: {loss2.item()}")
+            record_file = open(record_path, 'a')
+            record_file.write(
+                f"Step [{step}/{len(train_loader)}]\t Loss1: {loss1.item()}\t Loss2: {loss2.item()}\n")
+            record_file.close()
+
 
         if epoch % 20 == 0 or epoch == args.total_epoch:
             out_img = os.path.join(args.model_path, "wuhan_img_{}.tar".format(epoch))
