@@ -28,4 +28,16 @@ Users need to first get the POI category embeddings, and we utilize the [Semanti
 # train mmgr model
 python mmgr.py --data_path the_path_to_your_img_and_poi_data --total_epoch 120 --model_path the_path_to_save_model --train_record train_record_name
 # test mmgr on downstream task (pop task), revise the pretrained-ckpt path in the python file in the first step
-python res-pop.py 
+python res-pop.py
+
+# BibTeX
+```bash
+@article{bai2023geographic,
+  title={Geographic mapping with unsupervised multi-modal representation learning from VHR images and POIs},
+  author={Bai, Lubin and Huang, Weiming and Zhang, Xiuyuan and Du, Shihong and Cong, Gao and Wang, Haoyu and Liu, Bo},
+  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
+  volume={201},
+  pages={193--208},
+  year={2023},
+  publisher={Elsevier}
+}
